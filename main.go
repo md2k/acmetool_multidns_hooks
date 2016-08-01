@@ -98,7 +98,7 @@ func main() {
 		logging.Log.Debugf("Event: %s.", args[0])
 		os.Exit(1)
 	default:
-		logging.Log.Criticalf("%s", err.Error())
+		logging.Log.Criticalf("Event '%s' not implemented.", args[0])
 		os.Exit(1)
 	}
 }
@@ -143,7 +143,7 @@ func initDnsHook(cfg *config.HookConfig, args []string) (*Client, error) {
 			Provider: provider,
 		}, nil
 	default:
-		return nil, fmt.Errorf("%s", "No Provider's Module Available")
+		return nil, fmt.Errorf("No '%s' provider module available", providerCfg.Provider)
 	}
 
 }

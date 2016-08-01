@@ -4,5 +4,5 @@
 *.so
 
 acmetool_multidns_hooks
-dns.hook
+dns.*
 main

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+ACME_HOME=/opt/ACME_DATA
+ACME="bin/acmetool --state=${ACME_HOME}/acme --hooks=${ACME_HOME}/hooks"
+
+echo "Execute $ACME"
+$ACME "$@"

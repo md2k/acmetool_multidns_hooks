@@ -131,7 +131,6 @@ func initDnsHook(cfg *config.HookConfig, args []string) (*Client, error) {
 		if err != nil {
 			return nil, fmt.Errorf("%s", err.Error())
 		}
-		fmt.Println(provider)
 		return &Client{
 			Cfg: providerCfg,
 			Acme: Acme{
@@ -152,8 +151,9 @@ func FindDomainProvider(cfg *config.HookConfig, domain string) (details *config.
 	// Find DNS Provider and Account Details for Specified Domain
 	for provider, pval := range cfg.Providers {
 		for account, aval := range pval.Accounts {
-			if utils.StirngInSlice(domain, aval.Domains) {
+			if utils.DomainBelongsToProvider(domain, aval.Domains) {
 				// fmt.Println(domain, provider, account, aval.AuthData)
+				logging.Log.Debugf("Domain '%s' belong to provider '%s' under account '%s'. Processing...", domain, provider, account)
 				details = &config.DomainDetails{
 					Provider: provider,
 					Account:  account,

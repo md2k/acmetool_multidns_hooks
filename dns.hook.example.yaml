@@ -7,15 +7,15 @@ providers:
           email: myAccount1@example.com
           api_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
         domains:
-          - test1.example.com
-          - test1.domain.com
+          - example.com
+          - example2.com
       myAccount2:
         authdata:
           email: myAccount2@example.com
           api_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
         domains:
-          - test1.domain2.com
-          - test1.domain3.com
+          - domain2.com
+          - domain3.com
   route53:
     accounts:
       myAccount1:
@@ -23,12 +23,10 @@ providers:
           key_id: YYYYYYYYYYYYYY
           access_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
         domains:
-          - test1.moreexamle.com
+          - moreexamle.com
       myAccount2:
         authdata:
           key_id: YYYYYYYYYYYYYY
           access_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
         domains:
-          - test1.domain10.com
-
-
+          - domain10.com

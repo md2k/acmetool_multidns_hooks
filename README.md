@@ -16,15 +16,15 @@ providers:
           email: myAccount1@example.com
           api_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
         domains:
-          - test1.example.com
-          - test1.domain.com
+          - example.com
+          - example2.com
       myAccount2:
         authdata:
           email: myAccount2@example.com
           api_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
         domains:
-          - test1.domain2.com
-          - test1.domain3.com
+          - domain2.com
+          - domain3.com
   route53:
     accounts:
       myAccount1:
@@ -32,21 +32,19 @@ providers:
           key_id: YYYYYYYYYYYYYY
           access_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
         domains:
-          - test1.moreexamle.com
+          - moreexamle.com
       myAccount2:
         authdata:
           key_id: YYYYYYYYYYYYYY
           access_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
         domains:
-          - test1.domain10.com
+          - domain10.com
+
 ```
 
 Where:
 ***myAccount1/2/n...***  - this is used more for separation of different accounts if you manage several AWS/Cloudflare accounts.
 ***domains*** - list of domains which can be used with `dns.hook` to Update DNS records with ACME DNS-01 Challenge.
-
-### TODO:
-Rewrite ***domains*** part to allow use root domain record instead of requirments to add there A record per desired domain.
 
 When this hook used with Acmetool, any certificate requested for single domain or multiple domains will be checked by `dns.hook` with Yaml configuration
 and required DNS-01 challenges will be updated on correct DNS providers depends to which provider-account this domain belong to.
@@ -65,6 +63,5 @@ ACME_STATE_DIR="/PATH/TO/ACME/DIR" ./dns.hook challenge-dns-stop test.example.co
 ```
 
 More information about Hooks integration with Acmetool is [here](https://github.com/hlandau/acme/blob/master/_doc/SCHEMA.md#hooks)
-
 
 `MIT License.`

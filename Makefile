@@ -20,9 +20,9 @@ win:
 
 all:
 	@echo "Building All versions As release archiver per platform:"
-	GOOS="darwin" GOARCH=amd64 $(GO) build $(GOFLAGS) -o "$(EXEC_NAME)_mac64"
-	GOOS="linux" GOARCH=amd64 $(GO) build $(GOFLAGS) -o "$(EXEC_NAME)_linux64"
-	GOOS="windows" GOARCH=amd64 $(GO) build $(GOFLAGS) -o "$(EXEC_NAME)_win64.exe"
+	GOOS="darwin" GOARCH=amd64 $(GO) build $(GOFLAGS) -o "$(EXEC_NAME)" ; tar cjf "$(EXEC_NAME)_macos_amd64.tar.bz2" $(EXEC_NAME) ; rm -f "$(EXEC_NAME)"
+	GOOS="linux" GOARCH=amd64 $(GO) build $(GOFLAGS) -o "$(EXEC_NAME)" ; tar cjf "$(EXEC_NAME)_linux_amd64.tar.bz2" $(EXEC_NAME) ; rm -f "$(EXEC_NAME)"
+	GOOS="windows" GOARCH=amd64 $(GO) build $(GOFLAGS) -o "$(EXEC_NAME).exe" ; tar cjf "$(EXEC_NAME)_win_amd64.tar.bz2" "$(EXEC_NAME).exe" ; rm -f "$(EXEC_NAME).exe"
 
 .PHONY: list
 list:

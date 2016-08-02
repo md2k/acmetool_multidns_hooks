@@ -1,7 +1,22 @@
 #!/bin/sh
 
-ACME_HOME=/opt/ACME_DATA
-ACME="bin/acmetool --state=${ACME_HOME}/acme --hooks=${ACME_HOME}/hooks"
+echo "To Set DEBUG use: --xlog.severity=debug or ACME_DEBUG=true"
+if [ ! -z ${ACME_DEBUG+x} ]; then
+  DEBUG="--xlog.severity=debug"
+fi
 
+# Location of ACME HOOKS
+ACME_HOOK=/opt/.LETSENCRYPT
+
+echo "To Set STAGE to Staging set ACME_STAGE=staging, by default it will use Production LetsEncrypt Servers"
+if [ "$ACME_STAGE" = "staging" ]
+then
+  ACME_HOME=/opt/.LETSENCRYPT/Staging
+else
+  # Location of ACME State directory
+  ACME_HOME=/opt/.LETSENCRYPT/Production
+fi
+
+ACME="acmetool --state=${ACME_HOME}/acme --hooks=${ACME_HOOK}/hooks"
 echo "Execute $ACME"
-$ACME "$@"
+$ACME ${DEBUG} "$@"

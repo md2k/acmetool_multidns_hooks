@@ -3,7 +3,7 @@ DNS Hook for https://github.com/hlandau/acme with support of Multi-DNS providers
 Project partly based on work of https://github.com/xenolf/lego (DNS Providers workflow and DNS tools)
 
 ### Configuration
-Hook looking for its configuration file in acmetool `ACME_STATE_DIR`/hook/ location
+Hook looking for its configuration file in acmetool `ACME_STATE_DIR`/conf/ location
 Name of config file equal to name of executable with `.yaml` extension (Example: dns.hook.yaml)
 Configuration example below:
 ```yaml

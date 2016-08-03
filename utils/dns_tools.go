@@ -197,3 +197,12 @@ func UnFqdn(name string) string {
 	}
 	return name
 }
+
+func DomainBelongsToProvider(d string, l []string) bool {
+	for _, pd := range l {
+		if strings.Contains(d, pd) {
+			return true
+		}
+	}
+	return false
+}

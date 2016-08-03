@@ -3,23 +3,12 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
-	"strings"
 	"time"
 )
 
 func StirngInSlice(s string, l []string) bool {
 	for _, b := range l {
 		if b == s {
-			return true
-		}
-	}
-	return false
-}
-
-func DomainBelongsToProvider(d string, l []string) bool {
-	for _, pd := range l {
-		fmt.Println(pd, d)
-		if strings.Contains(d, pd) {
 			return true
 		}
 	}

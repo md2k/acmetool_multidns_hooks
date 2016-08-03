@@ -34,7 +34,7 @@ func InitConfig(acme_path string) (cfg *HookConfig, err error) {
 	// Get My Name (AppName)
 	_, execName := filepath.Split(os.Args[0])
 	// Prepare Config full-path location
-	cfg_file := fmt.Sprintf("%s/hooks/%s.yaml", acme_path, execName)
+	cfg_file := fmt.Sprintf("%s/conf/%s.yaml", acme_path, execName)
 	// Read Yaml Config
 	yamlFile, err := ioutil.ReadFile(cfg_file)
 	if err != nil {
